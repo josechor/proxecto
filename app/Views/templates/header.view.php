@@ -37,26 +37,29 @@
   <header>
     <img src="assets/img/logo.png" alt="">
     <nav class="navEstirado">
-      <span><a href="/inicio">Inicio</a></span>
-      <span><a href="/reservarPista">Reservar pistas</a></span>
-      <span><a href="#">Inscribirse gimnasio/piscina</a></span>
-      <span><a href="/tarifas">Tarifas</a></span>
-      <span><a href="/login">Login</a></span>
+      <a href="/inicio">Inicio</a>
+      <a href="/reservarPista">Reservar pistas</a>
+      <a href="#">Inscribirse gimnasio/piscina</a>
+      <a href="/tarifas">Tarifas</a>
     </nav>
     <div class="headerRedes">
-      <i class="fab fa-facebook-f"></i>
-      <i class="fab fa-twitter"></i>
-      <i class="fab fa-instagram"></i>
+      <a href="/login">Login</a>
+      <div class="redes">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+      </div>
+      <a href="#">Usuario</a>
     </div>
     <span class="menu"><i class="fas fa-bars"></i></span>
   </header>
   <nav class="navClick">
-      <span><a href="/inicio">Inicio</a></span>
-      <span><a href="/reservarPista">Reservar pistas</a></span>
-      <span><a href="#">Inscribirse gimnasio/piscina</a></span>
-      <span><a href="/tarifas">Tarifas</a></span>
-      <span><a href="/login">Login</a></span>
+  <a href="/inicio">Inicio</a>
+  <a href="/reservarPista">Reservar pistas</a>
+  <a href="#">Inscribirse gimnasio/piscina</a>
+  <a href="/tarifas">Tarifas</a>
+  <a href="/login">Login</a>
   </nav>
-  
+
   <script src="assets/js/header.js"></script>
-<section class="content">
+  <section class="content">

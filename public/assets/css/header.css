@@ -6,7 +6,7 @@ header {
   align-items: center;
   justify-content: space-around;
   flex-wrap: nowrap;
-  background-color: rgba(255, 255, 255, 0.767);
+  background-color: rgb(255, 255, 255);
   transition: all 0.2s;
   box-shadow: 0px 0px 3px;
 }
@@ -43,45 +43,65 @@ header nav.navEstirado {
   flex-wrap: wrap;
   gap: 20px;
 }
-nav span{
+nav a{
   font-size: 18px;
   font-weight: bold;
   color: #2367e6;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.4s;
+  padding: 5px 10px;
+  transition: all 0.2s;
 }
-header nav.navEstirado span a{
-  padding: 13px;
-    text-decoration: none;
-    color: #2367e6;
-}
-header nav.navEstirado span:hover a{
-    color: white;
-}
-header nav.navEstirado span:hover{
+
+nav.navEstirado a:hover {
   background-color: #2367e6;
+  color: white;
   transform: translateY(-3px);
 }
-nav.navClick span a{
+
+nav.navClick{
+  text-align: center;
+}
+nav.navClick a{
   padding: 10px 20px;
 }
-nav.navClick span:hover {
+nav.navClick a:hover {
   background-color: #2367e6;
   color: white;
   transform: translateX(3px);
   transition: all 0.4s;
 }
-nav.navClick span:hover a{
+nav.navClick a:hover a{
     color: white;
   }
 .headerRedes{
     display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.headerRedes a{
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2367e6;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.4s;
+  padding: 5px 10px;
+  transition: all 0.2s;
+}
+.headerRedes a:hover {
+  background-color: #2367e6;
+  color: white;
+  transform: translateY(-3px);
+}
+.redes {
+  display: flex;
     flex-direction: row;
     gap: 10px;
 }
-
-.headerRedes i{
+.redes i{
     font-size: 30px;
     cursor: pointer;
 }
