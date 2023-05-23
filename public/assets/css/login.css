@@ -1,0 +1,96 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.login-page {
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #1cbb9b;
+}
+
+.form{
+  width: 400px;
+  width: 320px;
+  background-color: white;
+  padding: 30px;
+  box-shadow: 1px 1px 5px black;
+}
+
+.loginRegister{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0px 0px 20px 0px;
+  border-bottom: 1px solid grey;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+form input{
+  width: 60%;
+  height: 30px;
+  border: none;
+  padding: 10px;
+  margin: 10px 0px;
+  text-align: center;
+
+}
+form input[type=text],form input[type=password],form input[type=email]{
+  border: 1px solid black;
+  transition: all 0.2s;
+}
+form input[type=text]:focus,form input[type=password]:focus,form input[type=email]:focus{
+  border: 1px solid black;
+  box-shadow: inset 1px 1px 10px rgb(177, 175, 175);
+  border-radius: 15px;
+}
+form input[type=submit]{
+  background: #1cbb9b;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+form input[type=submit]:hover,form input[type=submit]:focus{
+  box-shadow: inset 5px 5px 10px #1cbb9b;
+  background-color: #69e0c8;
+}
+.registrarse{
+  display: none;
+}
+
+.login, .registrar{
+  padding: 10px 5px;
+  font-weight: bolder;
+  font-size: 22px;
+  cursor: pointer;
+}
+.login {
+  color: #16725e;
+  text-decoration: underline;
+}
+.volver {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: rgb(21, 115, 202);
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.error{
+  color:red;
+}

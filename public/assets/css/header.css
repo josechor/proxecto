@@ -1,0 +1,112 @@
+header {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  background-color: rgba(255, 255, 255, 0.767);
+  transition: all 0.2s;
+  box-shadow: 0px 0px 3px;
+}
+header:hover {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 7px;
+}
+.menu {
+  display: none;
+}
+.navClick {
+  display: none;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+header img {
+  width: 10%;
+  min-width: 120px;
+}
+.contenedor-imagen-logo {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header nav.navEstirado {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+nav span{
+  font-size: 18px;
+  font-weight: bold;
+  color: #2367e6;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+header nav.navEstirado span a{
+  padding: 13px;
+    text-decoration: none;
+    color: #2367e6;
+}
+header nav.navEstirado span:hover a{
+    color: white;
+}
+header nav.navEstirado span:hover{
+  background-color: #2367e6;
+  transform: translateY(-3px);
+}
+nav.navClick span a{
+  padding: 10px 20px;
+}
+nav.navClick span:hover {
+  background-color: #2367e6;
+  color: white;
+  transform: translateX(3px);
+  transition: all 0.4s;
+}
+nav.navClick span:hover a{
+    color: white;
+  }
+.headerRedes{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.headerRedes i{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  header nav.navEstirado {
+    display: none;
+  }
+  .menu {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.navClick {
+  padding: 20px 0px;
+  position: relative;
+  z-index: 1;
+  margin-top: -10px;
+  background-color: rgb(217, 217, 218);
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  transform: translateY(-500px);
+  transition: all 0.5s;
+}
