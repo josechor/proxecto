@@ -46,10 +46,26 @@ class FrontController
         );
 
         Route::add(
-            '/tarifas',
+            '/login',
             function () {
-                $controlador = new \Com\Daw2\Controllers\TarifasController();
-                $controlador->tarifas();
+                $controlador = new \Com\Daw2\Controllers\LogsController();
+                $controlador->login();
+            },
+            'post'
+        );
+        Route::add(
+            '/logout',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\LogsController();
+                $controlador->logout();
+            },
+            'get'
+        );
+        Route::add(
+            '/registrar',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\LogsController();
+                $controlador->registerView();
             },
             'get'
         );
@@ -62,6 +78,17 @@ class FrontController
             },
             'post'
         );
+
+        Route::add(
+            '/tarifas',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\TarifasController();
+                $controlador->tarifas();
+            },
+            'get'
+        );
+
+
 
 
         Route::pathNotFound(

@@ -6,37 +6,48 @@ namespace Com\Daw2\Models;
 
 class LogsModel extends \Com\Daw2\Core\BaseModel
 {
+
+    function login($nombre, $contraseña){
+        $sql = "SELECT * FROM usuarios WHERE nombre = :username ";
+        
+        $stmt = $this->pdo->prepare($sql);
+        
+        $stmt->execute([
+            "username" => $nombre
+        ]);
+        
+        if($stmt->rowCount() == 1){
+            
+            $userDates = $stmt->fetchAll()[0];
+            if(password_verify($contraseña, $userDates['contraseña'])){
+                unset($userDates['contraseña']);
+                return $userDates;
+            }
+        }
+        
+        return null;
+    }
     function registrar($post)
     {
-        if (isset($post['correo']) && $post['correo'] != '') {
-            $conf = $this->pdo->prepare('SELECT * FROM usuarios WHERE correo = ?');
-            $conf->execute([$post['correo']]);
-            if (count($conf->fetchAll()) > 0) {
-                return array("error" => true, "lugarError"=>"registrarCorreo", "errorMensaje" => "Correo existente");
-            }
-        } else {
-            return array("error" => true, "lugarError"=>"registrarCorreo", "errorMensaje" => "Correo no valido");
-        }
-        if (isset($post['contraseña']) && $post['contraseña'] != '') {
-            $conf = $this->pdo->query('SELECT * FROM usuarios');
-            $users = $conf->fetchAll();
-            foreach ($users as $user) {
-                if (password_verify($post['contraseña'], $user['contraseña'])) {
-                    return array("error" => true, "lugarError"=>"registrarContraseña", "errorMensaje" => "contraseña existente");
 
-                }
-            }
-        } else {
-            return array("error" => true, "lugarError"=>"registrarContraseña", "errorMensaje" => "Contraseña no valida");
-        }
-        $post['contraseña'] = password_hash($post['contraseña'],PASSWORD_DEFAULT);
-        $stmt = $this->pdo->prepare('INSERT INTO usuarios(nombre,contraseña,correo) values(?,?,?)');
+        $post['contraseña'] = password_hash($post['contraseña'], PASSWORD_DEFAULT);
+        $stmt = $this->pdo->prepare('INSERT INTO usuarios(nombre,contraseña,correo,rol) values(?,?,?,?)');
         $stmt->execute([
             $post['nombre'],
             $post['contraseña'],
-            $post['correo']
-
+            $post['correo'],
+            2
         ]);
+        return false;
+    }
+
+    function comprabarCorreo($correo)
+    {
+        $conf = $this->pdo->prepare('SELECT * FROM usuarios WHERE correo = ?');
+        $conf->execute([$correo]);
+        if (count($conf->fetchAll()) > 0) {
+           return true;
+        }
         return false;
     }
 }

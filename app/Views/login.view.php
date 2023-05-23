@@ -10,37 +10,25 @@
 
 <body>
   <div class="login-page">
+  <p class="errorMain"><?php echo isset($error) && !empty($error)? $error : ''?></p>
+  <p class="confirmar"><?php echo isset($confirmar) && !empty($confirmar) ? $confirmar : ''?></p>
     <div class="form">
       <div class="loginRegister">
-        <span class="login">Iniciar sesión</span>
-        <span class="registrar">Registrarse</span>
+        <span class="actual">Iniciar sesión</span>
+        <a href="/registrar"><span class="registrar">Registrarse</span></a>
       </div>
-      <p class="error"><?php echo isset($registro['error']) && $registro['error'] == true ? "Hubo un error en el regristro" : ''?></p>
 
       <div class="iniciarSesion">
 
         <form action="login" method="post">
           <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-          <p class="error"></p>
           <input type="password" name="contraseña" id="contraseña" placeholder="contraseña">
-          <p class="error"></p>
           <input type="submit" value="Iniciar sesión">
         </form>
       </div>
-      <div class="registrarse">
-        <form action="registrar" method="post">
-          <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-          <input type="email" name="correo" id="correo" placeholder="correo">
-          <p class="error"><?php echo isset($registro['error']) && $registro['lugarError'] == "registrarCorreo" ? $registro['errorMensaje'] : ''?></p>
-          <input type="password" name="contraseña" id="contraseña" placeholder="contraseña">
-          <p class="error"><?php echo isset($registro['error']) && $registro['lugarError'] == "registrarContraseña" ? $registro['errorMensaje'] : ''?></p>
-          <input type="submit" value="Registrarse">
-        </form>
-      </div>
-      <a href="/inicio" class="volver">Volver al inicio</a>
-    </div>
+    <a href="/inicio" class="volver">Volver al inicio</a>
+
   </div>
-  <script src="assets/js/login.js"></script>
 </body>
 
 </html>

@@ -133,3 +133,20 @@ body{
   text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
   line-height: 1.4;
 }
+@media(max-width: 540px){
+  .cardPersonalizada .card__content .card_description{
+    display: block;
+    color: var(--text-lighter);
+    font-size: 2rem;
+    font-weight: 500;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+    line-height: 1.4;
+  }
+  .cardPersonalizada .card__content .card_info{
+    display: block;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+    line-height: 1.4;
+  }
+}

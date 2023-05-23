@@ -8,6 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 10px;
   height: 100%;
   background-color: #1cbb9b;
 }
@@ -66,17 +68,16 @@ form input[type=submit]:hover,form input[type=submit]:focus{
   box-shadow: inset 5px 5px 10px #1cbb9b;
   background-color: #69e0c8;
 }
-.registrarse{
-  display: none;
-}
 
-.login, .registrar{
+
+a, .actual {
+  color: black;
   padding: 10px 5px;
   font-weight: bolder;
   font-size: 22px;
   cursor: pointer;
 }
-.login {
+.actual {
   color: #16725e;
   text-decoration: underline;
 }
@@ -91,6 +92,15 @@ form input[type=submit]:hover,form input[type=submit]:focus{
   margin-top: 20px;
 }
 
-.error{
-  color:red;
+.errorMain,.confirmar{
+  text-align: center;
+  font-size: 35px;
+  font-weight: 900;
+  text-shadow: 1px 1px 0px black;
+}
+.errorMain, .error{
+  color: red;
+}
+.confirmar{
+  color: rgb(39, 84, 206);
 }

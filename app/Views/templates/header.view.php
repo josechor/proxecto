@@ -43,13 +43,13 @@
       <a href="/tarifas">Tarifas</a>
     </nav>
     <div class="headerRedes">
-      <a href="/login">Login</a>
+      <a href="<?php echo isset($_SESSION['usuario']) && !empty($_SESSION['usuario']) ? "/logout" : "/login"?>"><?php echo isset($_SESSION['usuario']) && !empty($_SESSION['usuario']) ? "Salir" : "Iniciar sesion"?></a>
       <div class="redes">
         <i class="fab fa-facebook-f"></i>
         <i class="fab fa-twitter"></i>
         <i class="fab fa-instagram"></i>
       </div>
-      <a href="#">Usuario</a>
+      <a href="#"><?php echo isset($_SESSION['usuario']) && !empty($_SESSION['usuario']) ? $_SESSION['usuario']['nombre'] : "Sin usuario"?></a>
     </div>
     <span class="menu"><i class="fas fa-bars"></i></span>
   </header>
