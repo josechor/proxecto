@@ -10,7 +10,17 @@ class FrontController
     static function main()
     {
         session_start();
-        //Rutas que están disponibles para todos
+        if (isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])) {
+            Route::add(
+                '/logout',
+                function () {
+                    $controlador = new \Com\Daw2\Controllers\LogsController();
+                    $controlador->logout();
+                },
+                'get'
+            );
+        }
+
         Route::add(
             '/',
             function () {
@@ -19,6 +29,7 @@ class FrontController
             },
             'get'
         );
+        
         Route::add(
             '/inicio',
             function () {
@@ -53,14 +64,7 @@ class FrontController
             },
             'post'
         );
-        Route::add(
-            '/logout',
-            function () {
-                $controlador = new \Com\Daw2\Controllers\LogsController();
-                $controlador->logout();
-            },
-            'get'
-        );
+
         Route::add(
             '/registrar',
             function () {
@@ -88,9 +92,6 @@ class FrontController
             'get'
         );
 
-
-
-
         Route::pathNotFound(
             function () {
                 $controller = new \Com\Daw2\Controllers\ErroresController();
@@ -104,9 +105,6 @@ class FrontController
                 $controller->error405();
             }
         );
-
-
-
 
         Route::run();
     }

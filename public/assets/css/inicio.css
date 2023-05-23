@@ -49,3 +49,45 @@ div.contenedorPubli .textPubli {
     width: 60%;
     background-color: rgb(53, 162, 206);
 }
+
+.contenedorImc{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+.imc {
+  border: 1px solid black;
+  position: absolute;
+  z-index: 3;
+  background-color: rgba(236, 231, 231, 0.534);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+.operacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+}
+.operacion div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.operacion input {
+  width: 90%;
+  height: 50px;
+}
+.contenedorImc img{
+  position: absolute;
+  width: 100%;
+}
