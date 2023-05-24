@@ -25,22 +25,3 @@
     </div>
 </div>
 
-<div class="contenedorImc">
-    <img src="assets/img/imc.png" alt="imc">
-    <div class="imc">
-        <div class="operacion">
-            <div>
-                <p>Altura en metros</p>
-                <input type="number" id="altura">
-            </div>
-            <div>
-                <p>Peso en kg</p>
-                <input type="number" id="altura">
-            </div>
-        </div>
-        <div class="resultado">
-            <h3>Tu IMC es</h3>
-            <p class="result"></p>
-        </div>
-    </div>
-</div>
