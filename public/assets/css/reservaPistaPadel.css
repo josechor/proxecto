@@ -1,0 +1,48 @@
+.contenedorTabla {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+table td, table th{
+    padding: 20px;
+}
+table {
+    font-weight: 600;
+    text-align: left;
+    background-color: rgb(255, 255, 255);
+    width: max-content;
+    max-width: 100%;
+}
+table, table th {
+    border: 1px solid black;
+}
+table th {
+    background-color: rgb(235, 242, 247);
+}
+table tr:nth-child(odd):hover{
+    background-color: rgb(202, 235, 226);
+}
+table tr:nth-child(even){
+    background-color: rgb(235, 250, 246);
+}
+table tr:nth-child(even):hover{
+    background-color: rgb(216, 230, 227);
+}
+table a {
+    display: block;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: rgb(241, 161, 42);
+    font-weight: 700;
+    text-align: center;
+    width: fit-content;
+    color: black;
+}
+.opciones {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-top: 20px;
+}

@@ -1,0 +1,119 @@
+
+body {
+    background-color: #2a6973;
+}
+.content {
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenedorReservas{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    height: fit-content;
+}
+.cartaReserva {
+    border-radius: 0px;
+    color: black;
+    background-color: white;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0px;
+    transition: all 0.5s;
+}
+.cartaReserva:hover{
+    box-shadow: 0px 0px 15px 3px black;
+    transform: scale(105%);
+    padding: 30px;
+    border-radius: 20px;
+}
+.cartaReserva:hover h2, .cartaReserva:hover div{
+    display: block;
+    transform: scaley(1);
+}
+.cartaReserva h2{
+    text-align: center;
+}
+.cartaReserva h2, .cartaReserva div{
+    display: none;
+    transform: scaleY(0);
+    transition: transform 1s 1s;
+}
+
+.cartaReserva h2 {
+    letter-spacing: 2px;
+    font-weight: 900;
+    transition: all .2s;
+}
+.cartaReserva:hover img {
+    filter: brightness(1);
+    margin: 15px 0px;
+}
+.cartaReserva .cartaReservaText{
+    line-height: 28px;
+    font-weight: 550;
+    font-size: 16px;
+    color: rgb(43, 42, 42);
+}
+.enfasis{
+    display: block;
+    text-align: center;
+    margin: 10px 0px;
+    font-size: 25px;
+    font-weight: 600;
+    color: black;
+}
+.info {
+    font-size: 14px;
+    margin: 20px 0px;
+    text-align: left;
+    display: block;
+    line-height: 20px;
+
+    color: rgb(155, 155, 155);
+}
+.cartaReserva:hover h2 {
+    transform: scale(102%);
+}
+.cartaReserva img {
+    filter: brightness(0.7);
+    width: 100%;
+    aspect-ratio: 1.72;
+}
+.cartaReserva:hover .contenedorBoton{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.boton {
+    color: white;
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: #2a91d6;
+    cursor: pointer;
+    transition: all 0.56s;
+}
+.boton:hover {
+    background-color: #1e6797;
+}
+
+@media only screen and (max-width: 1050px){
+    .contenedorReservas{
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+    }
+    .cartaReserva {
+        width: 80%;
+    }
+}

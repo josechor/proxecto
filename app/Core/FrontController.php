@@ -91,7 +91,23 @@ class FrontController
             },
             'get'
         );
+        Route::add(
+            '/inscripciones',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\InscripcionesController();
+                $controlador->mostrarInscripciones();
+            },
+            'get'
+        );
 
+        Route::add(
+            '/reservarPistaPadel',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\ReservarPista();
+                $controlador->reservaPistaPadel();
+            },
+            'get'
+        );
         Route::pathNotFound(
             function () {
                 $controller = new \Com\Daw2\Controllers\ErroresController();

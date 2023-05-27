@@ -39,7 +39,7 @@
     <nav class="navEstirado">
       <a href="/inicio">Inicio</a>
       <a href="/reservarPista">Reservar pistas</a>
-      <a href="#">Inscribirse gimnasio/piscina</a>
+      <a href="/inscripciones">Inscribirse gimnasio/piscina</a>
       <a href="/tarifas">Tarifas</a>
       <?php echo isset($_SESSION['usuario']) && $_SESSION['usuario']['rol']==1 ? "<a href='/admin'>Admin</a>" : ''?>
     </nav>
@@ -57,7 +57,7 @@
   <nav class="navClick">
   <a href="/inicio">Inicio</a>
   <a href="/reservarPista">Reservar pistas</a>
-  <a href="#">Inscribirse gimnasio/piscina</a>
+  <a href="/inscripciones">Inscribirse gimnasio/piscina</a>
   <a href="/tarifas">Tarifas</a>
   <a href="/login">Login</a>
   <?php echo isset($_SESSION['usuario']) && $_SESSION['usuario']['rol']==1 ? "<a href='/admin'>Admin</a>" : ''?>
