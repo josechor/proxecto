@@ -1,37 +1,44 @@
 <link rel="stylesheet" href="assets/css/reservaPistaPadel.css">
+<?php
+if (isset($mensaje) && $mensaje != "") {
+?>
+<h2><?php echo isset($mensaje) ? $mensaje : "" ?></h2>
+<?php
+}
+?>
 <div class="opciones">
-<div>
-    <label for="selecDia">DIA</label>
-    <select name="selecDia" id="selecDia">
-        <option value=""><?php echo date('Y-m-d') ?></option>
-        <option value=""><?php echo date('Y-m-d', strtotime('1 day', strtotime(date('Y-m-d')))) ?></option>
-        <option value=""><?php echo date('Y-m-d', strtotime('2 day', strtotime(date('Y-m-d')))) ?></option>
-    </select>
-</div>
+    <div>
+        <label for="selecDia">DIA</label>
+        <select name="selecDia" class="selecDia">
+            <option <?php echo ($_GET['fechaVer']) == $fechaActual ? "selected" : "" ?> value="<?php echo $fechaActual ?>"><?php echo $fechaActual ?></option>
+            <option <?php echo ($_GET['fechaVer']) == date('d-m-Y', strtotime('1 day', strtotime($fechaActual))) ? "selected" : "" ?> value="<?php echo date('d-m-Y', strtotime('1 day', strtotime($fechaActual))) ?>"><?php echo date('d-m-Y', strtotime('1 day', strtotime($fechaActual))) ?></option>
+            <option <?php echo ($_GET['fechaVer']) == date('d-m-Y', strtotime('2 day', strtotime($fechaActual))) ? "selected" : "" ?> value="<?php echo date('d-m-Y', strtotime('2 day', strtotime($fechaActual))) ?>"><?php echo date('d-m-Y', strtotime('2 day', strtotime($fechaActual))) ?></option>
+        </select>
+    </div>
 </div>
 <div class="contenedorTabla">
     <table>
         <tr>
             <th>Hora</th>
-            <th>Jugaores permitidos</th>
+            <th>Jugadores permitidos</th>
             <th>Estado</th>
             <th>Opciones</th>
         </tr>
         <?php
-        $fechaActual = date('Y-m-d');
-        $fechaActual = date('Y-m-d H:i:s', strtotime('+8 hour', strtotime($fechaActual)));
-        for ($i = 0; $i < 12; $i++) {
-            $nuevaFecha = strtotime('+1 hour', strtotime($fechaActual));
-            $fechaActual = date('H:i:s', $nuevaFecha);
+
+        foreach ($opciones as $op) {
+
         ?>
             <tr>
-                <td><?php echo $fechaActual ?></td>
-                <td>4</td>
-                <td><?php echo date('Y-m-d H:i:s')>= $fechaActual ? 'Fuera de hora' : 'Disponible' ?></td>
-                <td><?php echo date('Y-m-d H:i:s')>= $fechaActual ? '' : '<a class="botonReserva">Reservar</a>' ?></td>
+                <td><?php echo $op['hora'] ?></td>
+                <td><?php echo $op['jugadores'] ?></td>
+                <td><?php echo $op['estado'] ?></td>
+                <td> <?php echo $op['reservar'] == true ? '<form method="post" action="reservarPistaPadel"><input name="fecha" type="text" hidden value="' . $op['fechaCompleta'] . '"/><input type="submit" class="botonReserva" value="Reservar"/></form>' : "" ?> </td>
             </tr>
         <?php
         }
         ?>
     </table>
 </div>
+<script src="assets/js/cambiarDiaPadel.js"></script>
+<!--  -->

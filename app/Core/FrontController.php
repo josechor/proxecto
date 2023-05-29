@@ -19,6 +19,36 @@ class FrontController
                 },
                 'get'
             );
+
+            //Reserva de pistas
+            Route::add(
+                '/reservarPistaPadel',
+                function () {
+                    $controlador = new \Com\Daw2\Controllers\ReservarPistaController();
+                    $controlador->reservaPistaPadel();
+                },
+                'get'
+            );
+
+            //Reserva de pistas de padel
+            Route::add(
+                '/reservarPistaPadel',
+                function () {
+                    $controlador = new \Com\Daw2\Controllers\ReservarPistaController();
+                    $controlador->reservarPistaPadelPeticion();
+                },
+                'post'
+            );
+            Route::add(
+                '/reservarPista',
+                function () {
+                    $controlador = new \Com\Daw2\Controllers\ReservarPistaController();
+                    $controlador->ReservarPista();
+                },
+                'get'
+            );
+
+            
         }
 
         Route::add(
@@ -29,7 +59,7 @@ class FrontController
             },
             'get'
         );
-        
+
         Route::add(
             '/inicio',
             function () {
@@ -39,14 +69,29 @@ class FrontController
             'get'
         );
 
+        
+
+
         Route::add(
-            '/reservarPista',
+            '/tarifas',
             function () {
-                $controlador = new \Com\Daw2\Controllers\ReservarPista();
-                $controlador->ReservarPista();
+                $controlador = new \Com\Daw2\Controllers\TarifasController();
+                $controlador->tarifas();
             },
             'get'
         );
+        Route::add(
+            '/inscripciones',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\InscripcionesController();
+                $controlador->mostrarInscripciones();
+            },
+            'get'
+        );
+
+        
+        
+
         Route::add(
             '/login',
             function () {
@@ -81,32 +126,6 @@ class FrontController
                 $controlador->registrar();
             },
             'post'
-        );
-
-        Route::add(
-            '/tarifas',
-            function () {
-                $controlador = new \Com\Daw2\Controllers\TarifasController();
-                $controlador->tarifas();
-            },
-            'get'
-        );
-        Route::add(
-            '/inscripciones',
-            function () {
-                $controlador = new \Com\Daw2\Controllers\InscripcionesController();
-                $controlador->mostrarInscripciones();
-            },
-            'get'
-        );
-
-        Route::add(
-            '/reservarPistaPadel',
-            function () {
-                $controlador = new \Com\Daw2\Controllers\ReservarPista();
-                $controlador->reservaPistaPadel();
-            },
-            'get'
         );
         Route::pathNotFound(
             function () {

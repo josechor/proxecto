@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="assets/css/inicio.css">
 <div class="slider">
-    <img src="assets/img/tenis.jpg" alt="" class="sliderImg" />
     <img src="assets/img/gimnasio.jpg" alt="" class="sliderImg" />
-    <img src="assets/img/piscina.jpg" alt="" class="sliderImg" />
+    <img src="assets/img/ruskete.jpg" alt="" class="sliderImg" />
+    <img src="assets/img/tenis.jpg" alt="" class="sliderImg" />
 </div>
 <script src="assets/js/scriptSlider.js"></script>
 

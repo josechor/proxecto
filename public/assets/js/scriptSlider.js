@@ -1,6 +1,6 @@
-cont = 0;
+let cont = 0;
 
-intervalo = setInterval(moveImage, 5000);
+intervalo = setInterval(moveImage, 3000);
 function moveImage() {
   if (cont == 3) {
     cont = 0;
