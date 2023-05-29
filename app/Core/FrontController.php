@@ -20,7 +20,7 @@ class FrontController
                 'get'
             );
 
-            //Reserva de pistas
+            //Ver la reserva de pistas de padel
             Route::add(
                 '/reservarPistaPadel',
                 function () {
@@ -39,6 +39,7 @@ class FrontController
                 },
                 'post'
             );
+            //Ver la reserva pistas
             Route::add(
                 '/reservarPista',
                 function () {
@@ -47,7 +48,15 @@ class FrontController
                 },
                 'get'
             );
-
+            //Inscripciones de gimnasio y piscina
+            Route::add(
+                '/inscripciones',
+                function () {
+                    $controlador = new \Com\Daw2\Controllers\InscripcionesController();
+                    $controlador->mostrarInscripciones();
+                },
+                'get'
+            );
             
         }
 
@@ -80,14 +89,7 @@ class FrontController
             },
             'get'
         );
-        Route::add(
-            '/inscripciones',
-            function () {
-                $controlador = new \Com\Daw2\Controllers\InscripcionesController();
-                $controlador->mostrarInscripciones();
-            },
-            'get'
-        );
+        
 
         
         
