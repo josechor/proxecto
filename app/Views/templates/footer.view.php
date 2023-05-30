@@ -25,18 +25,13 @@
             Reserva pistas
           </li>
         </a>
-        <a href="/inicio">
+        <a href="/inscripciones">
           <li>
             Inscripciones
           </li>
         </a><a href="/tarifas">
           <li>
             Tarifas
-          </li>
-        </a>
-        <a href="/login">
-          <li>
-            Login
           </li>
         </a>
       </ul>

@@ -59,7 +59,6 @@
   <a href="/reservarPista">Reservar pistas</a>
   <a href="/inscripciones">Inscribirse gimnasio/piscina</a>
   <a href="/tarifas">Tarifas</a>
-  <a href="/login">Login</a>
   <?php echo isset($_SESSION['usuario']) && $_SESSION['usuario']['rol']==1 ? "<a href='/admin'>Admin</a>" : ''?>
   </nav>
 

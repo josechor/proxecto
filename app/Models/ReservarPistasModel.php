@@ -30,4 +30,29 @@ class ReservarPistasModel extends \Com\Daw2\Core\BaseModel
         ]);
         return $stmt->fetchAll();
     }
+
+    function comprobarDisponibilidadTenis($fecha)
+    {
+        $sql = "SELECT * FROM reservaTenis WHERE fecha_reserva = :fecha_reserva ";
+
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->execute([
+            "fecha_reserva" => date('Y-m-d H:i:s', strtotime($fecha))
+        ]);
+        return $stmt->fetchAll();
+    }
+
+    function reservarPistaTenis($fecha)
+    {
+        $userId = $_SESSION['usuario']['id'];
+        $sql = "INSERT INTO reservaTenis (id_usuario, fecha_reserva) VALUES(:id_usuario,:fecha_reserva)";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            "id_usuario" => $userId,
+            "fecha_reserva" => date('Y-m-d H:i:s', strtotime($fecha))
+        ]);
+        return $stmt->fetchAll();
+    }
 }

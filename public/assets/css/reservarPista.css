@@ -51,6 +51,17 @@ a.link:hover {
 .contenedorPistas hr{
     display: none;
 }
+.contenedorTexto p {
+  margin: 0px 10px;
+  text-align: center;
+  font-size: 24px;
+}
+@media only screen and (max-width: 1200px) {
+  .contenedorTexto p {
+    font-size: 16px;
+    padding: 10px 0px;
+  }
+}
 
 @media only screen and (max-width: 925px) {
   .pista {
@@ -67,6 +78,10 @@ a.link:hover {
   .contenedorTexto{
     width: 100%;
   }
+  .contenedorTexto p {
+    text-align: left;
+  }
+
   .contenedorPistas .pista:nth-child(3) {
     flex-direction: column;
   }

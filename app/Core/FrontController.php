@@ -39,26 +39,90 @@ class FrontController
                 },
                 'post'
             );
-            //Ver la reserva pistas
+
             Route::add(
-                '/reservarPista',
+                '/reservarPistaTenis',
                 function () {
                     $controlador = new \Com\Daw2\Controllers\ReservarPistaController();
-                    $controlador->ReservarPista();
+                    $controlador->reservaPistaTenis();
                 },
                 'get'
             );
-            //Inscripciones de gimnasio y piscina
+    
+            //Reserva de pistas de padel
             Route::add(
-                '/inscripciones',
+                '/reservarPistaTenis',
                 function () {
-                    $controlador = new \Com\Daw2\Controllers\InscripcionesController();
-                    $controlador->mostrarInscripciones();
+                    $controlador = new \Com\Daw2\Controllers\ReservarPistaController();
+                    $controlador->reservarPistaTenisPeticion();
                 },
-                'get'
+                'post'
             );
             
+            
         }
+        
+
+        //Parte de codigo que lo que hace es llevarte de vuelta al login porque no puedes seguir sin estar logueado
+        //Llevar al login
+        Route::add(
+            '/reservarPistaPadel',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\LogsController();
+                $controlador->loginView();
+            },
+            'get'
+        );
+
+        //Reserva de pistas de padel
+        Route::add(
+            '/reservarPistaPadel',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\LogsController();
+                $controlador->loginView();
+            },
+            'post'
+        );
+
+        Route::add(
+            '/reservarPistaTenis',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\LogsController();
+                $controlador->loginView();
+            },
+            'get'
+        );
+
+        //Reserva de pistas de padel
+        Route::add(
+            '/reservarPistaTenis',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\LogsController();
+                $controlador->loginView();
+            },
+            'post'
+        );
+
+
+        //Paginas que puedes ver sin estar logueado
+        //Ver la reserva pistas
+        Route::add(
+            '/reservarPista',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\ReservarPistaController();
+                $controlador->ReservarPista();
+            },
+            'get'
+        );
+        //Inscripciones de gimnasio y piscina
+        Route::add(
+            '/inscripciones',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\InscripcionesController();
+                $controlador->mostrarInscripciones();
+            },
+            'get'
+        );
 
         Route::add(
             '/',
@@ -79,8 +143,6 @@ class FrontController
         );
 
         
-
-
         Route::add(
             '/tarifas',
             function () {
@@ -90,10 +152,6 @@ class FrontController
             'get'
         );
         
-
-        
-        
-
         Route::add(
             '/login',
             function () {
@@ -129,6 +187,7 @@ class FrontController
             },
             'post'
         );
+
         Route::pathNotFound(
             function () {
                 $controller = new \Com\Daw2\Controllers\ErroresController();
