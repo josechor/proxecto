@@ -58,8 +58,59 @@ class FrontController
                 },
                 'post'
             );
-            
-            
+
+            Route::add(
+                '/inscribirseGym',
+                function () {
+                    $controlador = new \Com\Daw2\Controllers\InscripcionesController();
+                    $controlador->mostrarGymInscribirse();
+                },
+                'get'
+            );
+
+            Route::add(
+                '/inscribirsePiscina',
+                function () {
+                    $controlador = new \Com\Daw2\Controllers\InscripcionesController();
+                    $controlador->mostrarPiscinaInscribirse();
+                },
+                'get'
+            );
+                        
+            if($_SESSION['usuario']['rol'] == 1){
+                Route::add(
+                    '/admin',
+                    function () {
+                        $controlador = new \Com\Daw2\Controllers\AdministracionController();
+                        $controlador->adminitracionVer();
+                    },
+                    'get'
+                );
+                Route::add(
+                    '/administrarTarifas',
+                    function () {
+                        $controlador = new \Com\Daw2\Controllers\AdministracionController();
+                        $controlador->mostrarTarifas();
+                    },
+                    'get'
+                );
+                Route::add(
+                    '/administrarTarifas',
+                    function () {
+                        $controlador = new \Com\Daw2\Controllers\AdministracionController();
+                        $controlador->cambiarTarifa();
+                    },
+                    'post'
+                );
+                Route::add(
+                    '/verReservasPadel',
+                    function () {
+                        $controlador = new \Com\Daw2\Controllers\AdministracionController();
+                        $controlador->verReservasPadel();
+                    },
+                    'get'
+                );
+            }            
         }
         
 

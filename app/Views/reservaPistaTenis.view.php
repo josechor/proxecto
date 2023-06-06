@@ -25,11 +25,10 @@ if (isset($mensaje) && $mensaje != "") {
             <th>Opciones</th>
         </tr>
         <?php
-
+        
         foreach ($opciones as $op) {
-
         ?>
-            <tr>
+            <tr class="<?php echo $op['color']?>">
                 <td><?php echo $op['hora'] ?></td>
                 <td><?php echo $op['jugadores'] ?></td>
                 <td><?php echo $op['estado'] ?></td>

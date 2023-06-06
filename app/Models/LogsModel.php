@@ -24,7 +24,6 @@ class LogsModel extends \Com\Daw2\Core\BaseModel
                 return $userDates;
             }
         }
-        
         return null;
     }
     function registrar($post)

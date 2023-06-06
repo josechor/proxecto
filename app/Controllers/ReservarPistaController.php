@@ -45,18 +45,26 @@ class ReservarPistaController extends \Com\Daw2\Core\BaseController
     //Creación de todos los mensajes que vamos a introducir en la tabla de la view
     public function opcionesPadel($fecha)
     {
-        $modelo = new \Com\Daw2\Models\ReservarPistasModel;
+        $modelo = new \Com\Daw2\Models\PistasModel;
         $opciones = [];
         $horaInicial = date('d-m-Y H:i:s', strtotime('+9 hour', strtotime($fecha)));
         for ($i = 0; $i < 12; $i++) {
+            $opciones[$i]['color'] = "";
             $opciones[$i]['reservar'] = false;
             $fechamas8 = date('d-m-Y H:i:s', strtotime("$i hour", strtotime($horaInicial)));
             $fechaHoras = date('H:i', strtotime($fechamas8));
             $opciones[$i]['hora'] = $fechaHoras;
             $opciones[$i]['fechaCompleta'] = $fechamas8;
             $opciones[$i]['jugadores'] = 4;
-            if (count($modelo->comprobarDisponibilidadPadel($fechamas8)) > 0) {
-                $opciones[$i]['estado'] = "Pista reservada";
+            $disponibilidad = $modelo->comprobarDisponibilidadPadel($fechamas8);
+            if (count($disponibilidad) > 0) {
+                if ($disponibilidad[0]['id_usuario'] == $_SESSION['usuario']['id']) {
+                    $opciones[$i]['estado'] = "Reserva personal";
+                    $opciones[$i]['color'] = "green";
+                } else {
+                    $opciones[$i]['estado'] = "Pista reservada";
+                    $opciones[$i]['color'] = "red";
+                }
             } else {
                 if (strtotime($fechamas8) < strtotime(date('d-m-Y H:i:s'))) {
                     $opciones[$i]['estado'] = "Fuera de hora";
@@ -76,7 +84,7 @@ class ReservarPistaController extends \Com\Daw2\Core\BaseController
         $data['errores'] = $this->erroresPadel($_POST);
 
         if (count($data['errores']) == 0) {
-            $modelo = new \Com\Daw2\Models\ReservarPistasModel;
+            $modelo = new \Com\Daw2\Models\PistasModel;
             $modelo->reservarPistaPadel($_POST['fecha']);
             $_SESSION['mensaje'] = "Reserva completada con exito";
         } else {
@@ -98,7 +106,7 @@ class ReservarPistaController extends \Com\Daw2\Core\BaseController
                 if (strtotime($fecha) >= strtotime($fechaLimite)) {
                     $errores['fecha'] = "La fecha es mayor a la fecha actual (solo días).";
                 } else {
-                    $model = new \Com\Daw2\Models\ReservarPistasModel();
+                    $model = new \Com\Daw2\Models\PistasModel();
                     count($model->comprobarDisponibilidadPadel($fecha)) > 0 ? $errores['fecha'] = "Esta fecha ya esta reservada" : "";
                 }
             } else {
@@ -138,18 +146,26 @@ class ReservarPistaController extends \Com\Daw2\Core\BaseController
 
     public function opcionesTenis($fecha)
     {
-        $modelo = new \Com\Daw2\Models\ReservarPistasModel;
+        $modelo = new \Com\Daw2\Models\PistasModel;
         $opciones = [];
         $horaInicial = date('d-m-Y H:i:s', strtotime('+9 hour', strtotime($fecha)));
         for ($i = 0; $i < 12; $i++) {
+            $opciones[$i]['color'] = "";
             $opciones[$i]['reservar'] = false;
             $fechamas8 = date('d-m-Y H:i:s', strtotime("$i hour", strtotime($horaInicial)));
             $fechaHoras = date('H:i', strtotime($fechamas8));
             $opciones[$i]['hora'] = $fechaHoras;
             $opciones[$i]['fechaCompleta'] = $fechamas8;
             $opciones[$i]['jugadores'] = 4;
-            if (count($modelo->comprobarDisponibilidadTenis($fechamas8)) > 0) {
-                $opciones[$i]['estado'] = "Pista reservada";
+            $disponibilidad = $modelo->comprobarDisponibilidadTenis($fechamas8);
+            if (count($disponibilidad) > 0) {
+                if ($disponibilidad[0]['id_usuario'] == $_SESSION['usuario']['id']) {
+                    $opciones[$i]['estado'] = "Reserva personal";
+                    $opciones[$i]['color'] = "green";
+                } else {
+                    $opciones[$i]['estado'] = "Pista reservada";
+                    $opciones[$i]['color'] = "red";
+                }
             } else {
                 if (strtotime($fechamas8) < strtotime(date('d-m-Y H:i:s'))) {
                     $opciones[$i]['estado'] = "Fuera de hora";
@@ -168,7 +184,7 @@ class ReservarPistaController extends \Com\Daw2\Core\BaseController
         $data['errores'] = $this->erroresTenis($_POST);
 
         if (count($data['errores']) == 0) {
-            $modelo = new \Com\Daw2\Models\ReservarPistasModel;
+            $modelo = new \Com\Daw2\Models\PistasModel;
             $modelo->reservarPistaTenis($_POST['fecha']);
             $_SESSION['mensaje'] = "Reserva completada con exito";
         } else {
@@ -189,7 +205,7 @@ class ReservarPistaController extends \Com\Daw2\Core\BaseController
                 if (strtotime($fecha) >= strtotime($fechaLimite)) {
                     $errores['fecha'] = "La fecha es mayor a la fecha actual (solo días).";
                 } else {
-                    $model = new \Com\Daw2\Models\ReservarPistasModel();
+                    $model = new \Com\Daw2\Models\PistasModel();
                     count($model->comprobarDisponibilidadTenis($fecha)) > 0 ? $errores['fecha'] = "Esta fecha ya esta reservada" : "";
                 }
             } else {

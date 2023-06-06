@@ -9,4 +9,16 @@ class TarifasModel extends \Com\Daw2\Core\BaseModel {
         $stmt = $this->pdo->query('SELECT * FROM tarifas');
         return $stmt->fetchAll();
     }
+
+    function cambiarTarifa($post) {
+        $precioNuevo = $post['precio'];
+        $nombre = $post['nombre'];
+        $stmt = $this->pdo->prepare("UPDATE tarifas SET precio = :precio where nombre = :nombre");
+        $stmt->execute([
+            "precio" => $precioNuevo,
+            "nombre" => $nombre
+        ]);
+        return $stmt->fetchAll();
+    }
+
 }

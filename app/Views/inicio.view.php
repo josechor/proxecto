@@ -4,7 +4,7 @@
 <div class="contenedorMainPubli">
     <div class="contenedorGeneralPublic">
         <div class="texto">
-            <h2>Bienvenido/a al Complejo Deportivo Jose</h2>
+            <h2>Bienvenid@ al Complejo Deportivo Jose</h2>
             <p>
                 ¡Descubre un lugar donde el deporte y la diversión se unen! En el Complejo Deportivo Jose, ofrecemos una amplia variedad de actividades para mantenerte activo/a y disfrutar de un estilo de vida saludable. Nuestras modernas instalaciones están diseñadas para satisfacer todas tus necesidades deportivas.
             </p>
@@ -28,7 +28,6 @@
                 En nuestro gimnasio, encontrarás una amplia gama de equipos y profesionales capacitados que te ayudarán a alcanzar tus metas de acondicionamiento físico. Con una variedad de clases y programas disponibles, siempre encontrarás algo que se adapte a tu nivel y preferencias.
             </p>
             <p>
-
                 Nuestras pistas de pádel y tenis son ideales tanto para jugadores principiantes como experimentados. Organizamos torneos y eventos emocionantes para que puedas poner a prueba tus habilidades y disfrutar de la competencia amistosa.
             </p>
             <p>

@@ -50,6 +50,12 @@ table a {
     width: fit-content;
     color: black;
 }
+.green{
+    color: green;
+}
+.red {
+    color: red;
+}
 .opciones {
     width: 100%;
     display: flex;

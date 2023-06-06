@@ -1,0 +1,30 @@
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    flex-direction: column;
+    width: 100%;
+}
+.contenedor{
+    padding: 30px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.contenedor a {
+    padding: 10px 20px;
+    background-color: rgb(199, 186, 4);
+    color: white;
+    width: 100%;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.contenedor a:nth-child(even):hover {
+    transform: translateX(5px);
+}
+.contenedor a:nth-child(odd):hover {
+    transform: translateX(-5px);
+}

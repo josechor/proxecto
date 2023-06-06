@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <link rel="shortcut icon" href="assets/img/logo.png" />
   <base href="/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,25 +42,25 @@
       <a href="/reservarPista">Reservar pistas</a>
       <a href="/inscripciones">Inscribirse gimnasio/piscina</a>
       <a href="/tarifas">Tarifas</a>
-      <?php echo isset($_SESSION['usuario']) && $_SESSION['usuario']['rol']==1 ? "<a href='/admin'>Admin</a>" : ''?>
+      <?php echo isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 1 ? "<a href='/admin'>Admin</a>" : '' ?>
     </nav>
     <div class="headerRedes">
-      <a href="<?php echo isset($_SESSION['usuario']) && !empty($_SESSION['usuario']) ? "/logout" : "/login"?>"><?php echo isset($_SESSION['usuario']) && !empty($_SESSION['usuario']) ? "Salir" : "Iniciar sesion"?></a>
+      <a href="<?php echo isset($_SESSION['usuario']) && !empty($_SESSION['usuario']) ? "/logout" : "/login" ?>"><?php echo isset($_SESSION['usuario']) && !empty($_SESSION['usuario']) ? "Salir" : "Iniciar sesion" ?></a>
       <div class="redes">
         <i class="fab fa-facebook-f"></i>
         <i class="fab fa-twitter"></i>
         <i class="fab fa-instagram"></i>
       </div>
-      <a href="#"><?php echo isset($_SESSION['usuario']) && !empty($_SESSION['usuario']) ? $_SESSION['usuario']['nombre'] : "Sin usuario"?></a>
+      <a href="#"><?php echo isset($_SESSION['usuario']) && !empty($_SESSION['usuario']) ? $_SESSION['usuario']['nombre'] : "Sin usuario" ?></a>
     </div>
     <span class="menu"><i class="fas fa-bars"></i></span>
   </header>
   <nav class="navClick">
-  <a href="/inicio">Inicio</a>
-  <a href="/reservarPista">Reservar pistas</a>
-  <a href="/inscripciones">Inscribirse gimnasio/piscina</a>
-  <a href="/tarifas">Tarifas</a>
-  <?php echo isset($_SESSION['usuario']) && $_SESSION['usuario']['rol']==1 ? "<a href='/admin'>Admin</a>" : ''?>
+    <a href="/inicio">Inicio</a>
+    <a href="/reservarPista">Reservar pistas</a>
+    <a href="/inscripciones">Inscribirse gimnasio/piscina</a>
+    <a href="/tarifas">Tarifas</a>
+    <?php echo isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 1 ? "<a href='/admin'>Admin</a>" : '' ?>
   </nav>
 
   <script src="assets/js/header.js"></script>

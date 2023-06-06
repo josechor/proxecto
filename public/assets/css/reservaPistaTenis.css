@@ -58,6 +58,12 @@ table a {
     margin-top: 20px;
     color: white;
 }
+.green{
+    color: green;
+}
+.red {
+    color: red;
+}
 h2{
     color: white;
     text-align: center;
