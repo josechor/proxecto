@@ -110,6 +110,14 @@ class FrontController
                     },
                     'get'
                 );
+                Route::add(
+                    '/verReservasTenis',
+                    function () {
+                        $controlador = new \Com\Daw2\Controllers\AdministracionController();
+                        $controlador->verReservasTenis();
+                    },
+                    'get'
+                );
             }            
         }
         

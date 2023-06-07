@@ -66,6 +66,6 @@ class AdministracionController extends \Com\Daw2\Core\BaseController {
         $data['paginaActual'] = $_GET['page'];
         $data['nPaginas'] = $paginas;
         $data['datos'] = $modelo->mostrarReservasTenis($_GET,$tamPagina);
-        $this->view->showViews(array('templates/header.view.php', 'verReservasPadel.view.php'), $data);
+        $this->view->showViews(array('templates/header.view.php', 'verReservasTenis.view.php'), $data);
     }
 }
