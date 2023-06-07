@@ -1,0 +1,104 @@
+body {
+    background-image: linear-gradient(15deg, #0f4667 0%, #2a6973 150%);
+}
+
+.datos {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.paginas {
+    color: white;
+}
+.paginacion {
+    color: white;
+    font-size: 18px;
+    margin: 10px 0px 0px 0px ;
+}
+.datos form {
+    
+    background-color: rgba(240, 248, 255, 0.719);
+    border: 1px solid black;
+    padding: 30px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.datos form div{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+.datos form div.order{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.datos form div.order div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+.resultados {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px 0px;
+    padding: 10px;
+}
+.paginas {
+    text-align: center;
+}
+.contenedorTabla {
+    width: 50%;
+}
+.contenedorTabla table {
+    width: 100%;
+    text-align: center;
+    color: black;
+    background-color: white;
+    font-size: 20px;
+}
+.contenedorTabla table th, .contenedorTabla table {
+    border: 1px solid black;
+}
+table th {
+    background-color: rgb(235, 242, 247);
+}
+table tr:nth-child(odd):hover{
+    background-color: rgb(202, 235, 226);
+}
+table tr:nth-child(even){
+    background-color: rgb(235, 250, 246);
+}
+table tr:nth-child(even):hover{
+    background-color: rgb(216, 230, 227);
+}
+
+@media only screen and (max-width: 1400px){
+    .contenedorTabla {
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 950px){
+    .contenedorTabla {
+        width: 100%;
+    }
+    table td {
+        border: 1px solid black;
+    }
+}
