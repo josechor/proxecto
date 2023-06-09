@@ -1,119 +1,114 @@
-
 body {
-    background-image: linear-gradient(15deg, #0f4667 0%, #2a6973 150%);
-}
-.content {
-    min-height: 700px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.contenedorReservas{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    position: relative;
-    height: fit-content;
-}
-.cartaReserva {
-    border-radius: 0px;
-    color: black;
-    background-color: white;
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    margin: 30px 0px;
-    transition: all 0.5s;
-}
-.cartaReserva:hover{
-    box-shadow: 0px 0px 15px 3px black;
-    transform: scale(105%);
-    padding: 30px;
-    border-radius: 20px;
-}
-.cartaReserva:hover h2, .cartaReserva:hover div{
-    display: block;
-    transform: scaley(1);
-}
-.cartaReserva h2{
-    text-align: center;
-}
-.cartaReserva h2, .cartaReserva div{
-    display: none;
-    transform: scaleY(0);
-    transition: transform 1s 1s;
+  background-image: linear-gradient(15deg, #0f4667 0%, #2a6973 150%);
 }
 
-.cartaReserva h2 {
-    letter-spacing: 2px;
-    font-weight: 900;
-    transition: all .2s;
+.contenedorPistas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px 0px;
 }
-.cartaReserva:hover img {
-    filter: brightness(1);
-    margin: 15px 0px;
+.contenedorPistas .pista:nth-child(1) {
+  flex-direction: row-reverse;
 }
-.cartaReserva .cartaReservaText{
-    line-height: 28px;
-    font-weight: 550;
+.pista {
+  background-color: azure;
+  width: 90%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+.pista .contenedorImg {
+  width: 50%;
+  overflow: hidden;
+}
+.pista .contenedorImg img {
+  width: 130%;
+}
+.contenedorTexto {
+  width: 50%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px;
+}
+h2 {
+  text-align: center;
+  font-weight: 700;
+}
+a.link {
+  padding: 10px 20px;
+  background-color: rgb(199, 186, 4);
+  color: white;
+  transition: all 0.3s;
+}
+a.link:hover {
+  background-color: rgb(182, 170, 4);
+}
+.contenedorPistas hr {
+  display: none;
+}
+.contenedorTexto p {
+  margin: 0px 10px;
+  text-align: center;
+  font-size: 24px;
+}
+@media only screen and (max-width: 1200px) {
+  .contenedorTexto p {
     font-size: 16px;
-    color: rgb(43, 42, 42);
+    padding: 10px 0px;
+  }
 }
-.enfasis{
-    display: block;
-    text-align: center;
-    margin: 10px 0px;
-    font-size: 25px;
-    font-weight: 600;
-    color: black;
-}
-.info {
-    font-size: 14px;
-    margin: 20px 0px;
+
+@media only screen and (max-width: 925px) {
+  .pista {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .contenedorImg {
+    width: 100%;
+  }
+  img {
+    width: 100%;
+  }
+  .contenedorTexto {
+    width: 100%;
+  }
+  .contenedorTexto p {
     text-align: left;
+  }
+
+  .contenedorPistas .pista:nth-child(3) {
+    flex-direction: column;
+  }
+  .contenedorPistas hr {
     display: block;
-    line-height: 20px;
+    width: 90%;
+    height: 1px;
+    background-color: #000;
+  }
+}
 
-    color: rgb(155, 155, 155);
+.bonoPremium {
+  width: 80%;
+  background: rgb(193, 105, 68);
+  background: linear-gradient(
+    90deg,
+    rgba(193, 105, 68, 1) 0%,
+    rgba(237, 215, 103, 1) 51%,
+    rgba(54, 208, 82, 1) 84%
+  );
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
 }
-.cartaReserva:hover h2 {
-    transform: scale(102%);
-}
-.cartaReserva img {
-    filter: brightness(0.7);
-    width: 100%;
-    aspect-ratio: 1.72;
-}
-.cartaReserva:hover .contenedorBoton{
-    width: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-}
-.boton {
+.bonoPremium h3 {
     color: white;
-    width: fit-content;
-    padding: 10px 20px;
-    background-color: #2a91d6;
-    cursor: pointer;
-    transition: all 0.56s;
-}
-.boton:hover {
-    background-color: #1e6797;
-}
-
-@media only screen and (max-width: 1050px){
-    .contenedorReservas{
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
-    }
-    .cartaReserva {
-        width: 80%;
-    }
+    font-weight: 800;
+    font-size: 35px;
 }

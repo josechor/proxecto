@@ -1,3 +1,6 @@
+body {
+    background-image: linear-gradient(15deg, #0f4667 0%, #2a6973 150%);
+}
 .content{
     width: 100%;
     display: flex;
@@ -6,24 +9,48 @@
     margin: 20px 0px;
 }
 
+.contenedorGeneral {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+table {
+    text-align: center;
+    width: 100%;
+    background-color: white;
+    
+}
+
 table,table th, td{
     border: 1px solid black;
 }
-table {
-    text-align: center;
-}
-table tr:first-child{
-    padding: 10px;
+input[type="submit"], input[type="number"] {
+    width: 100%;
 }
 table th {
+    font-size: 20px;
     background-color: rgb(235, 242, 247);
 }
-table tr:nth-child(odd):hover{
-    background-color: rgb(202, 235, 226);
+table tr:hover {
+    background-color: rgb(201, 235, 238);
 }
-table tr:nth-child(even){
-    background-color: rgb(235, 242, 247);
+table tr {
+    font-weight: 600;
 }
-table tr:nth-child(even):hover{
-    background-color: rgb(216, 230, 227);
+table td::first-letter {
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 770px) {
+    .contenedorGeneral{
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .contenedorGeneral{
+        width: 100%;
+    }
 }

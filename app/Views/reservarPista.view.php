@@ -17,7 +17,7 @@
     <div class="pista">
         
         <div class="contenedorImg">
-            <img src="assets/img/tenis.jpg" alt="tenis">
+            <img src="assets/img/padel/tenis.jpg" alt="tenis">
         </div>
         <div class="contenedorTexto">
             <h2>¡Reserva tu pista de tenis ahora!</h2>

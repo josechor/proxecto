@@ -25,13 +25,13 @@
             </p>
 
             <p>
-                En nuestro gimnasio, encontrarás una amplia gama de equipos y profesionales capacitados que te ayudarán a alcanzar tus metas de acondicionamiento físico. Con una variedad de clases y programas disponibles, siempre encontrarás algo que se adapte a tu nivel y preferencias.
+                En nuestro gimnasio, encontrarás una amplia gama de equipamiento de última generación y profesionales capacitados que te ayudarán a alcanzar tus metas de acondicionamiento físico. Con una variedad de clases y programas disponibles, siempre encontrarás algo que se adapte a tu nivel y preferencias.
             </p>
             <p>
                 Nuestras pistas de pádel y tenis son ideales tanto para jugadores principiantes como experimentados. Organizamos torneos y eventos emocionantes para que puedas poner a prueba tus habilidades y disfrutar de la competencia amistosa.
             </p>
             <p>
-                Además, nuestra piscina es perfecta para relajarte, nadar unas cuantas vueltas o participar en nuestras clases de natación. Ofrecemos un ambiente seguro y acogedor donde podrás disfrutar de momentos refrescantes y divertidos.
+                Nuestra piscina es perfecta para relajarse, entrenar duro o aprender a nadar. Ofrecemos una zona de spa y una profesionales en el ambito de la natación
             </p>
             <p>
                 En el Complejo Deportivo Jose, nos enorgullece ofrecer un ambiente acogedor y amigable para todos nuestros visitantes. Nuestro equipo de profesionales está comprometido en brindarte un servicio de alta calidad y garantizar que tu experiencia sea memorable.

@@ -1,28 +1,34 @@
 <link rel="stylesheet" href="assets/css/inscripcionesPaginas.css">
-<div class="contenedorGeneral">
-    <div class="contenedorImgPubli">
-        <img src="assets/img/piscinaInicio.jpg" alt="Foto de una piscina">
-        <div class="textoPubli">
-            <p>
-                ¡Inscríbete en nuestra piscina y disfruta de una experiencia refrescante llena de diversión y deporte!
-            </p>
-            <p>
-                En Complejo Deportivo Jose, estamos encantados de ofrecerte la oportunidad de sumergirte en nuestras refrescantes instalaciones acuáticas. Ya sea que quieras mejorar tus habilidades de natación, mantenerte en forma o simplemente disfrutar de un chapuzón en un entorno seguro y amigable, ¡tenemos el programa perfecto para ti!
-            </p>
-            <p>
-                Introduce tu número de teléfono a continuación para recibir más información sobre nuestras clases de natación y otros programas acuáticos emocionantes. Nuestro equipo estará encantado de proporcionarte detalles sobre horarios, niveles de habilidad y opciones de inscripción. ¡No esperes más, sumérgete en esta increíble experiencia!
-            </p>
-        </div>
+
+<div class="contenedor">
+    <div class="info">
+        Disfruta de nuestra zona de spa y piscina libre despues de rellenar nuestro formulario de inscripcion
     </div>
-    <div class="contenedorInscripcionInfo">
-        <div class="inscribirse">
-            <form action="">
-                <input type="tel" name="" id="">
-                <input type="submit" value="Inscribirse">
-            </form>
-        </div>
-        <p>
-            Si tienes alguna pregunta o necesitas más información, no dudes en contactarnos al 123123123 o envíanos un correo electrónico a complejodeportivojose@gmail.com. ¡Estamos aquí para ayudarte en cada paso del camino hacia una experiencia acuática inolvidable!
-        </p>
-    </div>
+    <form action="inscribirsePiscina" method="post">
+        <h1> Datos </h1>
+
+        <fieldset>
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" value="<?php echo isset($input['nombre']) && !empty($input['nombre']) ? $input['nombre'] : "" ?>">
+            <p class="error"><?php echo isset($errores['nombre']) ? $errores['nombre'] : "" ?> </p>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<?php echo isset($input['email']) && !empty($input['email']) ? $input['email'] : "" ?>">
+            <p class="error"><?php echo isset($errores['email']) ? $errores['email'] : "" ?> </p>
+
+            <label for="dni">Dni:</label>
+            <input type="text" id="dni" name="dni" value="<?php echo isset($input['dni']) && !empty($input['dni']) ? $input['dni'] : "" ?>">
+            <p class="error"><?php echo isset($errores['dni']) ? $errores['dni'] : "" ?> </p>
+
+            <label>Años:</label>
+            <input type="number" id="años" name="años" value="<?php echo isset($input['años']) && !empty($input['años']) ? $input['años'] : "" ?>">
+            <p class="error"><?php echo isset($errores['años']) ? $errores['años'] : "" ?> </p>
+
+            <label>Localización:</label>
+            <input type="text" id="localizacion" name="localizacion" value="<?php echo isset($input['localizacion']) && !empty($input['localizacion']) ? $input['localizacion'] : "" ?>">
+            <p class="error"><?php echo isset($errores['localizacion']) ? $errores['localizacion'] : "" ?> </p>
+
+        </fieldset>
+        <button type="submit">Enviar</button>
+    </form>
 </div>

@@ -69,6 +69,15 @@ class FrontController
             );
 
             Route::add(
+                '/inscribirseGym',
+                function () {
+                    $controlador = new \Com\Daw2\Controllers\InscripcionesController();
+                    $controlador->gymRegister();
+                },
+                'post'
+            );
+    
+            Route::add(
                 '/inscribirsePiscina',
                 function () {
                     $controlador = new \Com\Daw2\Controllers\InscripcionesController();
@@ -76,6 +85,16 @@ class FrontController
                 },
                 'get'
             );
+            Route::add(
+                '/inscribirsePiscina',
+                function () {
+                    $controlador = new \Com\Daw2\Controllers\InscripcionesController();
+                    $controlador->piscinaInscribirse();
+                },
+                'post'
+            );
+
+            
                         
             if($_SESSION['usuario']['rol'] == 1){
                 Route::add(
@@ -118,12 +137,16 @@ class FrontController
                     },
                     'get'
                 );
+
+                
             }            
         }
         
 
         //Parte de codigo que lo que hace es llevarte de vuelta al login porque no puedes seguir sin estar logueado
         //Llevar al login
+        
+        
         Route::add(
             '/reservarPistaPadel',
             function () {
