@@ -114,7 +114,7 @@ class InscripcionesModel extends \Com\Daw2\Core\BaseModel {
         }
 
         if (isset($filtros['correo']) && !empty($filtros['correo'])) {
-            $condiciones[] = 'inscripciones_gimnasio.email LIKE :correo';
+            $condiciones[] = 'email LIKE :correo';
             $parametros['correo'] = '%' . $filtros['correo'] . '%';
         }
         if (isset($filtros['dni']) && !empty($filtros['dni'])) {
@@ -145,6 +145,8 @@ class InscripcionesModel extends \Com\Daw2\Core\BaseModel {
 
         return array('condiciones' => $condiciones, 'parametros' => $parametros);
     }
+
+    
 
     function mostrarInscriocionesGym($filtros,$tamPag)
     {

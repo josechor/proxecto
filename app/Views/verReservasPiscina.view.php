@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/assets/css/verInscripciones.css">
 <div class="datos">
     <h2>Filtros</h2>
-    <form action="/verInscripcionesGimnasio" method="get" class="filtros">
+    <form action="/verInscripcionesPiscina" method="get" class="filtros">
         <div>
             <label for="">Nombre usuario</label>
             <input type="text" name="nombre" id="nombre" value="<?php echo isset($_GET['nombre']) && !empty($_GET['nombre']) ? $_GET['nombre'] : "" ?>">
