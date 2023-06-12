@@ -28,6 +28,7 @@ header:hover {
 header img {
   width: 10%;
   min-width: 120px;
+  cursor: pointer;
 }
 .contenedor-imagen-logo {
   width: 50%;

@@ -48,7 +48,7 @@ class FrontController
                 },
                 'get'
             );
-    
+
             //Reserva de pistas de padel
             Route::add(
                 '/reservarPistaTenis',
@@ -76,7 +76,7 @@ class FrontController
                 },
                 'post'
             );
-    
+
             Route::add(
                 '/inscribirsePiscina',
                 function () {
@@ -93,10 +93,27 @@ class FrontController
                 },
                 'post'
             );
+            Route::add(
+                '/borrarInscribirseGym',
+                function () {
+                    $controlador = new \Com\Daw2\Controllers\InscripcionesController();
+                    $controlador->borrarInscripcionGym();
+                },
+                'post'
+            );
+            Route::add(
+                '/borrarInscribirsePiscina',
+                function () {
+                    $controlador = new \Com\Daw2\Controllers\InscripcionesController();
+                    $controlador->borrarInscripcionPiscina();
+                },
+                'post'
+            );
 
-            
-                        
-            if($_SESSION['usuario']['rol'] == 1){
+
+
+
+            if ($_SESSION['usuario']['rol'] == 1) {
                 Route::add(
                     '/admin',
                     function () {
@@ -137,16 +154,56 @@ class FrontController
                     },
                     'get'
                 );
-
+                Route::add(
+                    '/verUsuarios',
+                    function () {
+                        $controlador = new \Com\Daw2\Controllers\AdministracionController();
+                        $controlador->verUsuarios();
+                    },
+                    'get'
+                );
+                Route::add(
+                    '/borrarUser',
+                    function () {
+                        $controlador = new \Com\Daw2\Controllers\AdministracionController();
+                        $controlador->borrarUser();
+                    },
+                    'get'
+                );
+                Route::add(
+                    '/cambiarRol',
+                    function () {
+                        $controlador = new \Com\Daw2\Controllers\AdministracionController();
+                        $controlador->cambiarRol();
+                    },
+                    'get'
+                );
                 
-            }            
+                Route::add(
+                    '/verInscripcionesGimnasio',
+                    function () {
+                        $controlador = new \Com\Daw2\Controllers\AdministracionController();
+                        $controlador->verInscripcionGym();
+                    },
+                    'get'
+                );
+
+                Route::add(
+                    '/verInscripcionesPiscina',
+                    function () {
+                        $controlador = new \Com\Daw2\Controllers\AdministracionController();
+                        $controlador->verInscripcionPiscina();
+                    },
+                    'get'
+                );
+            }
         }
-        
+
 
         //Parte de codigo que lo que hace es llevarte de vuelta al login porque no puedes seguir sin estar logueado
         //Llevar al login
-        
-        
+
+
         Route::add(
             '/reservarPistaPadel',
             function () {
@@ -184,7 +241,56 @@ class FrontController
             },
             'post'
         );
+        Route::add(
+            '/inscribirseGym',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\LogsController();
+                $controlador->loginView();
+            },
+            'get'
+        );
 
+        Route::add(
+            '/inscribirseGym',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\LogsController();
+                $controlador->loginView();
+            },
+            'post'
+        );
+
+        Route::add(
+            '/inscribirsePiscina',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\LogsController();
+                $controlador->loginView();
+            },
+            'get'
+        );
+        Route::add(
+            '/inscribirsePiscina',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\LogsController();
+                $controlador->loginView();
+            },
+            'post'
+        );
+        Route::add(
+            '/borrarInscribirseGym',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\LogsController();
+                $controlador->loginView();
+            },
+            'post'
+        );
+        Route::add(
+            '/borrarInscribirsePiscina',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\LogsController();
+                $controlador->loginView();
+            },
+            'post'
+        );
 
         //Paginas que puedes ver sin estar logueado
         //Ver la reserva pistas
@@ -224,7 +330,7 @@ class FrontController
             'get'
         );
 
-        
+
         Route::add(
             '/tarifas',
             function () {
@@ -233,7 +339,7 @@ class FrontController
             },
             'get'
         );
-        
+
         Route::add(
             '/login',
             function () {

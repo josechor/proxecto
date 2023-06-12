@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="/assets/css/verReservas.css">
+<link rel="stylesheet" href="/assets/css/verInscripciones.css">
 <div class="datos">
     <h2>Filtros</h2>
-    <form action="/verReservasPadel" method="get" class="filtros">
+    <form action="/verInscripcionesGimnasio" method="get" class="filtros">
         <div>
             <label for="">Nombre usuario</label>
             <input type="text" name="nombre" id="nombre" value="<?php echo isset($_GET['nombre']) && !empty($_GET['nombre']) ? $_GET['nombre'] : "" ?>">
@@ -9,6 +9,14 @@
         <div>
             <label for="">Correo usuario</label>
             <input type="text" name="correo" id="correo" value="<?php echo isset($_GET['correo']) && !empty($_GET['correo']) ? $_GET['correo'] : "" ?>">
+        </div>
+        <div>
+            <label for="">Años usuario</label>
+            <input type="number" name="años" id="años" value="<?php echo isset($_GET['años']) && !empty($_GET['años']) ? $_GET['años'] : "" ?>">
+        </div>
+        <div>
+            <label for="">Dni usuario</label>
+            <input type="text" name="dni" id="dni" value="<?php echo isset($_GET['dni']) && !empty($_GET['dni']) ? $_GET['dni'] : "" ?>">
         </div>
         <div>
             <label for="">Fecha final</label>
@@ -29,7 +37,7 @@
                 <input type="radio" id="fecha_asc" name="order" value="fecha_asc" <?php echo isset($_GET['order']) && ($_GET['order']) == "fecha_asc" ? "checked" : "" ?>>
             </div>
         </div>
-        <a href="/verReservasPadel" class="reiniciar">Reiniciar filtros</a>
+        <a href="/verInscripcionesPiscina" class="reiniciar">Reiniciar filtros</a>
         <input type="submit" value="Filtrar">
     </form>
 </div>
@@ -41,22 +49,34 @@
         <table>
             <tr>
                 <th>
-                    Nombre usuario
+                    Nombre reserva
                 </th>
                 <th>
-                    Correo usuario
+                    Correo reserva
                 </th>
                 <th>
                     Fecha reserva
+                </th>
+                <th>
+                    Dni reserva
+                </th>
+                <th>
+                    Años reserva
+                </th>
+                <th>
+                    Numero cuenta
                 </th>
             </tr>
             <?php
             foreach ($datos as $d) {
             ?>
                 <tr>
-                    <td><?php echo $d['nombre'] ?></td>
-                    <td><?php echo $d['correo'] ?></td>
-                    <td><?php echo $d['fecha_reserva'] ?></td>
+                    <td><?php echo $d['nombreCompleto'] ?></td>
+                    <td><?php echo $d['email'] ?></td>
+                    <td><?php echo $d['fecha_inscripcion'] ?></td>
+                    <td><?php echo $d['dni'] ?></td>
+                    <td><?php echo $d['años'] ?></td>
+                    <td><?php echo $d['ncuenta'] ?></td>
                 </tr>
             <?php
             }
@@ -82,4 +102,4 @@
         </select>
     </div>
 </div>
-<script src="assets/js/cambiarPaginaPadel"></script>
+<script src="assets/js/cambiarPaginaPiscina"></script>

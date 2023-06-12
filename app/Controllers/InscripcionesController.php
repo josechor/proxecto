@@ -18,8 +18,45 @@ class InscripcionesController extends \Com\Daw2\Core\BaseController
         $data = array(
             'titulo' => 'Inscripciones piscina',
         );
-        
+
+        $modelo = new \Com\Daw2\Models\InscripcionesModel;
+        $inscripcion = $modelo->verInscripcionPiscina();
+        if(count($inscripcion)>0){
+            $data['inscripciones'] = 1;
+        }else{
+            $data['inscripciones'] = 0;
+        }
         $this->view->showViews(array('templates/header.view.php', 'piscinaInscribirse.view.php', 'templates/footer.view.php'), $data);
+    }
+    public function piscinaInscribirse()
+    {
+        $data = array(
+            'titulo' => 'Registro piscina',
+        );
+        $data['input'] = filter_var_array($_POST,FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $data['errores'] = $this->filtros($_POST);
+        if(count($data['errores'])){
+            $data['inscripciones'] = 0;
+            $this->view->showViews(array('templates/header.view.php', 'piscinaInscribirse.view.php', 'templates/footer.view.php'), $data);
+        }else{
+            $modelo = new \Com\Daw2\Models\InscripcionesModel;
+            $modelo->inscribirsePiscina($_POST);
+            $this->view->showViews(array('recordarInscripcion.view.php'), $data);
+        }
+    }
+
+    function borrarInscripcionPiscina(){
+        $data['input'] = filter_var_array($_POST,FILTER_SANITIZE_SPECIAL_CHARS);
+        $modelo = new \Com\Daw2\Models\InscripcionesModel;
+        $borrar = $modelo->borrarInscripcionPiscina($_POST['dni']);
+        if($borrar){
+            header('Location: inscribirsePiscina');
+        }else{
+            $data['errores']['dni'] = "Dni no encontrado";
+            $data['inscripciones'] = 1;
+            $this->view->showViews(array('templates/header.view.php', 'gymInscribirse.view.php', 'templates/footer.view.php'), $data);
+        }
     }
 
     public function mostrarGymInscribirse()
@@ -27,6 +64,13 @@ class InscripcionesController extends \Com\Daw2\Core\BaseController
         $data = array(
             'titulo' => 'Inscripciones piscina',
         );
+        $modelo = new \Com\Daw2\Models\InscripcionesModel;
+        $inscripcion = $modelo->verInscripcionGym();
+        if(count($inscripcion)>0){
+            $data['inscripciones'] = 1;
+        }else{
+            $data['inscripciones'] = 0;
+        }
         $this->view->showViews(array('templates/header.view.php', 'gymInscribirse.view.php', 'templates/footer.view.php'), $data);
     }
 
@@ -39,28 +83,29 @@ class InscripcionesController extends \Com\Daw2\Core\BaseController
 
         $data['errores'] = $this->filtros($_POST);
         if(count($data['errores'])){
+            $data['inscripciones'] = 0;
             $this->view->showViews(array('templates/header.view.php', 'gymInscribirse.view.php', 'templates/footer.view.php'), $data);
         }else{
             $modelo = new \Com\Daw2\Models\InscripcionesModel;
             $modelo->inscribirGym($_POST);
+            $this->view->showViews(array('recordarInscripcion.view.php'), $data);
         }
     }
 
-    public function piscinaInscribirse()
-    {
-        $data = array(
-            'titulo' => 'Registro gym',
-        );
+    function borrarInscripcionGym(){
         $data['input'] = filter_var_array($_POST,FILTER_SANITIZE_SPECIAL_CHARS);
-
-        $data['errores'] = $this->filtros($_POST);
-        if(count($data['errores'])){
-            $this->view->showViews(array('templates/header.view.php', 'piscinaInscribirse.view.php', 'templates/footer.view.php'), $data);
+        $modelo = new \Com\Daw2\Models\InscripcionesModel;
+        $borrar = $modelo->borrarInscripcionGym($_POST['dni']);
+        if($borrar){
+            header('Location: inscribirseGym');
         }else{
-            $modelo = new \Com\Daw2\Models\InscripcionesModel;
-            $modelo->inscribirsePiscina($_POST);
+            $data['errores']['dni'] = "Dni no encontrado";
+            $data['inscripciones'] = 1;
+            $this->view->showViews(array('templates/header.view.php', 'gymInscribirse.view.php', 'templates/footer.view.php'), $data);
         }
     }
+
+    
 
     public function filtros($post)
     {
@@ -110,17 +155,25 @@ class InscripcionesController extends \Com\Daw2\Core\BaseController
         }
 
         if (isset($post['años']) && !empty($post['años'])) {
-            if ($post['años'] < 14 || $post['años'] > 90) {
-                $errores['años'] = "Tienes que tener entre 3 y 90 años";
+            if ($post['años'] < 14) {
+                $errores['años'] = "Tienes que tener mas de 14 años";
             }
         } else {
             $errores['años'] = "No puede estar vacio";
         }
 
-        if (!isset($post['localizacion']) || empty($post['localizacion'])) {
-            $errores['localizacion'] = "No puede estar vacio";
+        if (isset($post['ncuenta']) || !empty($post['ncuenta'])) {
+            $cadena = preg_replace('/[^0-9]/', '', $post['ncuenta']);
+
+            if (strlen($cadena) !== 20) {
+              $errores['ncuenta'] = "Numero de cuenta mal escrito";
+            }
+        }else{
+            $errores['ncuenta'] = "No puede estar vacio";
         }
 
         return $errores;
     }
+
+    
 }

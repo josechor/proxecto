@@ -1,9 +1,6 @@
 
 <link rel="stylesheet" href="assets/css/inscripciones.css">
 
-<div class="bonoPremium">
-    <h3>BONO PREMIUM</h3>
-</div>
 <div class="contenedorPistas">
     <div class="pista">
         <div class="contenedorImg">

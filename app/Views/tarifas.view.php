@@ -32,7 +32,7 @@
                     <?php
                     } else if ($nombre == "Pareja") {
                     ?>
-                        <p class="card_description">Todo incluido desde <?php echo $t['precio'] ?>€ al mes</p>
+                        <p class="card_description">Tu y un compañero desde solo <?php echo $t['precio'] ?>€ al mes</p>
                     <?php
                     } else {
                     ?>

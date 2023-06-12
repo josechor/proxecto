@@ -36,7 +36,7 @@
 
 <body class="hold-transition sidebar-mini layout-fixed <?php echo isset($_COOKIE['dark']) ? 'dark-mode' : ''; ?>">
   <header>
-    <img src="assets/img/logo.png" alt="">
+    <img src="assets/img/logo.png" alt="logo" onclick="window.location.href='/inicio'">
     <nav class="navEstirado">
       <a href="/inicio">Inicio</a>
       <a href="/reservarPista">Reservar pistas</a>

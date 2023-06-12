@@ -29,6 +29,7 @@
                 <input type="radio" id="fecha_asc" name="order" value="fecha_asc" <?php echo isset($_GET['order']) && ($_GET['order']) == "fecha_asc" ? "checked" : "" ?>>
             </div>
         </div>
+        <a href="/verReservasPadel" class="reiniciar">Reiniciar filtros</a>
         <input type="submit" value="Filtrar">
     </form>
 </div>

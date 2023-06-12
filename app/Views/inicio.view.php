@@ -12,10 +12,10 @@
         <div class="fotosInicioContenedor">
             <div class="fotos">
                 <img onclick="window.location.href='/reservarPistaTenis'" src="assets/img/tenisInicio" alt="">
-                <img src="assets/img/gimnasioInicio" alt="">
+                <img onclick="window.location.href='/inscribirseGym'" src="assets/img/gimnasioInicio" alt="">
             </div>
             <div class="fotos">
-                <img src="assets/img/piscinaInicio" alt="">
+                <img onclick="window.location.href='/inscribirsePiscina'" src="assets/img/piscinaInicio" alt="">
                 <img onclick="window.location.href='/reservarPistaPadel'" src="assets/img/padelInicio" alt="">
             </div>
         </div>

@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/assets/css/verReservas.css">
 <div class="datos">
     <h2>Filtros</h2>
-    <form action="/verReservasPadel" method="get" class="filtros">
+    <form action="/verUsuarios" method="get" class="filtros">
         <div>
             <label for="">Nombre usuario</label>
             <input type="text" name="nombre" id="nombre" value="<?php echo isset($_GET['nombre']) && !empty($_GET['nombre']) ? $_GET['nombre'] : "" ?>">
@@ -10,29 +10,29 @@
             <label for="">Correo usuario</label>
             <input type="text" name="correo" id="correo" value="<?php echo isset($_GET['correo']) && !empty($_GET['correo']) ? $_GET['correo'] : "" ?>">
         </div>
-        <div>
-            <label for="">Fecha final</label>
-            <input type="datetime-local" name="fechaMax" id="fechaMax" value="<?php echo isset($_GET['fechaMax']) && !empty($_GET['fechaMax']) ? $_GET['fechaMax'] : "" ?>">
-        </div>
-        <div>
-            <label for="">Fecha incial</label>
-            <input type="datetime-local" name="fechaMin" id="fechaMin" value="<?php echo isset($_GET['fechaMin']) && !empty($_GET['fechaMin']) ? $_GET['fechaMin'] : "" ?>">
-        </div>
-
         <div class="order">
             <div>
-                <label for="fecha_desc">Fecha desc</label>
-                <input type="radio" id="fecha_desc" name="order" value="fecha_desc" <?php echo isset($_GET['order']) && ($_GET['order']) == "fecha_desc" ? "checked" : "" ?> <?php echo !isset($_GET['order']) || (isset($_GET['order']) && empty($_GET['order'])) ? "checked" : "" ?>>
+                <label for="desc">Nombre desc</label>
+                <input type="radio" id="desc" name="order" value="desc" <?php echo isset($_GET['order']) && ($_GET['order']) == "desc" ? "checked" : "" ?> <?php echo !isset($_GET['order']) || (isset($_GET['order']) && empty($_GET['order'])) ? "checked" : "" ?>>
             </div>
             <div>
-                <label for="fecha_asc">Fecha asc</label>
-                <input type="radio" id="fecha_asc" name="order" value="fecha_asc" <?php echo isset($_GET['order']) && ($_GET['order']) == "fecha_asc" ? "checked" : "" ?>>
+                <label for="adc">Nombre asc</label>
+                <input type="radio" id="asc" name="order" value="asc" <?php echo isset($_GET['order']) && ($_GET['order']) == "asc" ? "checked" : "" ?>>
             </div>
         </div>
-        <a href="/verReservasPadel" class="reiniciar">Reiniciar filtros</a>
+        <a href="/verUsuarios" class="reiniciar">Reiniciar filtros</a>
         <input type="submit" value="Filtrar">
     </form>
 </div>
+<?php 
+if(isset($mensaje) && !empty($mensaje)){
+    ?>
+    <div class="mensaje">
+        <?php echo $mensaje?>
+    </div>
+    <?php
+}
+?> 
 <div class="resultados">
     <div class="paginas">
         <h3>Página <?php echo $paginaActual ?> de <?php echo $nPaginas ?></h3>
@@ -47,7 +47,10 @@
                     Correo usuario
                 </th>
                 <th>
-                    Fecha reserva
+                    Cambio rol
+                </th>
+                <th>
+                    Eliminar
                 </th>
             </tr>
             <?php
@@ -56,7 +59,8 @@
                 <tr>
                     <td><?php echo $d['nombre'] ?></td>
                     <td><?php echo $d['correo'] ?></td>
-                    <td><?php echo $d['fecha_reserva'] ?></td>
+                    <td><a href="cambiarRol?rol=<?php echo $d['rol'] == 1 ? "2" : "1" ?>&id=<?php echo $d['id']?>"><?php echo $d['rol'] == 1 ? "Hacer user normal" : "Hacer admin" ?></a></td>
+                    <td><a href="borrarUser?id=<?php echo $d['id']?>"><i class="fas fa-trash" style="color: #f90606;"></a></i></td>
                 </tr>
             <?php
             }
@@ -82,4 +86,4 @@
         </select>
     </div>
 </div>
-<script src="assets/js/cambiarPaginaPadel"></script>
+<script src="assets/js/cambiarPaginaUsuarios"></script>
